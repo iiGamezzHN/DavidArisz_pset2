@@ -23,33 +23,30 @@ import java.io.*;
 import java.util.*;
 
 public class Story implements Serializable {
-    private String text;                 // text of the story
-    private List<String> placeholders;   // list of placeholders to fill in
-    private int filledIn;                // number of placeholders that have been filled in
-    private boolean htmlMode;            // set to true to surround placeholders with <b></b> tags
+    private String text = "";                                // text of the story
+    private List<String> placeholders = new ArrayList<>();   // list of placeholders to fill in
+    private int filledIn = 0;                                // number of placeholders that have been filled in
+    private boolean htmlMode = false;                        // set to true to surround placeholders with <b></b> tags
 
-    {
-        // instance initializer; runs before any constructor
-        text = "";
-        placeholders = new ArrayList<>();
-        filledIn = 0;
-        htmlMode = false;
-        clear();
-    }
-
-    /** constructs a new Story reading its text from the given input stream */
+    /**
+     * constructs a new Story reading its text from the given input stream
+     */
     public Story(InputStream stream) {
         read(stream);
     }
 
-    /** resets the story back to an empty initial state */
+    /**
+     * resets the story back to an empty initial state
+     */
     public void clear() {
         text = "";
         placeholders.clear();
         filledIn = 0;
     }
 
-    /** replaces the next unfilled placeholder with the given word */
+    /**
+     * replaces the next unfilled placeholder with the given word
+     */
     public void fillInPlaceholder(String word) {
         if (!isFilledIn()) {
             text = text.replace("<" + filledIn + ">", word);
@@ -57,8 +54,10 @@ public class Story implements Serializable {
         }
     }
 
-    /** returns the next placeholder such as "adjective",
-     *  or empty string if story is completely filled in already */
+    /**
+     * returns the next placeholder such as "adjective",
+     * or empty string if story is completely filled in already
+     */
     public String getNextPlaceholder() {
         if (isFilledIn()) {
             return "";
@@ -67,27 +66,37 @@ public class Story implements Serializable {
         }
     }
 
-    /** returns total number of placeholders in the story */
+    /**
+     * returns total number of placeholders in the story
+     */
     public int getPlaceholderCount() {
         return placeholders.size();
     }
 
-    /** returns how many placeholders still need to be filled in */
+    /**
+     * returns how many placeholders still need to be filled in
+     */
     public int getPlaceholderRemainingCount() {
         return placeholders.size() - filledIn;
     }
 
-    /** returns true if all placeholders have been filled in */
+    /**
+     * returns true if all placeholders have been filled in
+     */
     public boolean isFilledIn() {
         return filledIn >= placeholders.size();
     }
 
-    /** reads initial story text from the given input stream */
+    /**
+     * reads initial story text from the given input stream
+     */
     public void read(InputStream stream) {
         read(new Scanner(stream));
     }
 
-    /** reads initial story text from the given Scanner */
+    /**
+     * reads initial story text from the given Scanner
+     */
     private void read(Scanner input) {
         while (input.hasNext()) {
             String word = input.next();
@@ -112,7 +121,9 @@ public class Story implements Serializable {
         }
     }
 
-    /** returns story text */
+    /**
+     * returns story text
+     */
     public String toString() {
         return text;
     }

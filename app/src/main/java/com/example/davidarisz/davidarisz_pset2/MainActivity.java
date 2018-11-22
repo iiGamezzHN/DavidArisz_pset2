@@ -14,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeActivity(View v){
-        startActivity(new Intent(MainActivity.this, FillWordsActivity.class));
+        startActivity(new Intent(this, FillWordsActivity.class));
     }
 }

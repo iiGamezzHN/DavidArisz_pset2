@@ -13,35 +13,32 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:text="@string/fill_in"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:text="@string/fill_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="250dp"
+        android:id="@+id/word_edittext"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/words_here"
-        android:inputType="textPersonName"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fill_tv" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ok_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:onClick="next"
         android:text="@string/ok"
-        app:layout_constraintBaseline_toBaselineOf="@id/editText"
+        app:layout_constraintBaseline_toBaselineOf="@id/word_edittext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/editText" />
+        app:layout_constraintStart_toEndOf="@id/word_edittext" />
 
     <TextView
         android:id="@+id/textView4"
@@ -52,6 +49,6 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button" />
+        app:layout_constraintTop_toBottomOf="@id/ok_button" />
 
 </android.support.constraint.ConstraintLayout>

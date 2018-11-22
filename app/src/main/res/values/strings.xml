@@ -5,7 +5,7 @@
     <string name="fill_in">Fill in the words to complete the story!</string>
     <string name="final_title">Your Mad Lib story!</string>
     <string name="empty_story">Story comes here</string>
-    <string name="reset">MAKE ANOTHER STORY</string>
-    <string name="ok">ok</string>
+    <string name="reset">Make another story</string>
+    <string name="ok">OK</string>
     <string name="words_here">Words here</string>
 </resources>

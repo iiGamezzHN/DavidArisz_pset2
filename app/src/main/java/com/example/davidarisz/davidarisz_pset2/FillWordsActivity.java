@@ -22,20 +22,24 @@ public class FillWordsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_words);
 
-        et = findViewById(R.id.word_edittext);
-
         // Create story
-        InputStream rawStory = getResources().openRawResource(R.raw.madlib0_simple);
+        InputStream rawStory = getResources().openRawResource(R.raw.madlib1_tarzan);
         story = new Story(rawStory);
+
+        // Get EditText object
+        et = findViewById(R.id.word_edittext);
+        // Set first hint
+        et.setHint(story.getNextPlaceholder());
     }
 
     public void next(View v) {
         story.fillInPlaceholder(et.getText().toString());
-        et.setText("");
         if (story.isFilledIn()) {
             Intent intent = new Intent(this, FinalStoryActivity.class);
             intent.putExtra(STORY_TAG, story);
             startActivity(intent);
         }
+        et.setText("");
+        et.setHint(story.getNextPlaceholder());
     }
 }

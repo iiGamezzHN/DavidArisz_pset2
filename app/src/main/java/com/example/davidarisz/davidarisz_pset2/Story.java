@@ -84,8 +84,6 @@ public class Story implements Serializable {
      * returns true if all placeholders have been filled in
      */
     public boolean isFilledIn() {
-        System.out.println("FILLED: " + Integer.toString(filledIn));
-        System.out.println("SIZE: " + Integer.toString(placeholders.size()));
         return filledIn >= placeholders.size();
     }
 

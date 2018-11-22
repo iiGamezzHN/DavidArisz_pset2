@@ -11,17 +11,21 @@ import java.io.InputStreamReader;
 
 public class FinalStory extends AppCompatActivity {
 
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_final_story);
+    }
 
     public void main(String[] args) throws IOException {
         InputStream inputStream = getResources().openRawResource(R.raw.madlib0_simple);
         BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(inputStream));
-        String eachline = bufferedReader.readLine();
-        while (eachline != null) {
+        String eachLine = bufferedReader.readLine();
+        while (eachLine != null) {
             // `the words in the file are separated by space`, so to get each words
-            eachline = bufferedReader.readLine();
+            eachLine = bufferedReader.readLine();
             TextView textView = findViewById(R.id.finalStory);
-            textView.setText(eachline);
+            textView.setText(eachLine);
         }
     }
 }

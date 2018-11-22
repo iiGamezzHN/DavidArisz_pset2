@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.InputStream;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,5 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeActivity(View v){
         startActivity(new Intent(MainActivity.this, FinalStory.class));
+        InputStream story = getResources().openRawResource(R.raw.madlib0_simple);
+        Story simple = new Story(story);
+
+
     }
 }

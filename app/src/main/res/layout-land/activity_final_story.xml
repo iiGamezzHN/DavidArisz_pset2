@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:text="@string/final_title"
         android:textAlignment="center"
-        android:textSize="30sp"
-        android:text="@string/final_title"/>
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/finalStory"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/reset"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:text="@string/reset"/>
 
 </LinearLayout>

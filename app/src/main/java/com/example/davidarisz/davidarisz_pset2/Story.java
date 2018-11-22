@@ -31,7 +31,7 @@ public class Story implements Serializable {
     {
         // instance initializer; runs before any constructor
         text = "";
-        placeholders = new ArrayList<String>();
+        placeholders = new ArrayList<>();
         filledIn = 0;
         htmlMode = false;
         clear();

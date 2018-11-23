@@ -19,9 +19,9 @@
     <TextView
         android:id="@+id/finalStory"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:text="@string/empty_story"
@@ -34,7 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:text="@string/reset"/>
+        android:onClick="reset"
+        android:text="@string/reset"
+        android:textAllCaps="true" />
 
 </LinearLayout>

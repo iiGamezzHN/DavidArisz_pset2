@@ -26,7 +26,7 @@ public class Story implements Serializable {
     private String text = "";                                // text of the story
     private List<String> placeholders = new ArrayList<>();   // list of placeholders to fill in
     private int filledIn = 0;                                // number of placeholders that have been filled in
-    private boolean htmlMode = false;                        // set to true to surround placeholders with <b></b> tags
+    private boolean htmlMode = true;                        // set to true to surround placeholders with <b></b> tags
 
     /**
      * constructs a new Story reading its text from the given input stream

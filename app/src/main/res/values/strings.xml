@@ -8,4 +8,10 @@
     <string name="reset">Make another story</string>
     <string name="ok">OK</string>
     <string name="words_here">Words here</string>
+    <string name="simple">Simple Story</string>
+    <string name="tarzan">Tarzan Story</string>
+    <string name="university">University Story</string>
+    <string name="clothes">Clothes Story</string>
+    <string name="dance">Dance Story</string>
+    <string name="selectStory">Select Story</string>
 </resources>

@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Change the activity from MainActivity to FillWordsActivity
     public void changeActivity(View v) {
         if(selected == STORY_SELECT) {
             Toast.makeText(this, "Select a story!", Toast.LENGTH_SHORT).show();

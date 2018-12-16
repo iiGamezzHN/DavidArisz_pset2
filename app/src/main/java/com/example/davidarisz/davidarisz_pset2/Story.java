@@ -35,6 +35,14 @@ public class Story implements Serializable {
         read(stream);
     }
 
+    public List<String> getPlaceholders() {
+        return placeholders;
+    }
+
+    public void setPlaceholders(List<String> placeholder) {
+        placeholders = placeholder;
+    }
+
     /**
      * resets the story back to an empty initial state
      */
@@ -104,7 +112,7 @@ public class Story implements Serializable {
                 // a placeholder; replace with e.g. "<0>" so I can find/replace it easily later
                 // (make them bold so that they stand out!)
                 if (htmlMode) {
-                    text += " <b><" + placeholders.size() + "></b>";
+                    text += " <b    ><" + placeholders.size() + "></b>";
                 } else {
                     text += " <" + placeholders.size() + ">";
                 }

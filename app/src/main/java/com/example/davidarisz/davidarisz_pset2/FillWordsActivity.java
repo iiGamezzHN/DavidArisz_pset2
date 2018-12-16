@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.davidarisz.davidarisz_pset2.MainActivity.SELECTED_TAG;
 import static com.example.davidarisz.davidarisz_pset2.MainActivity.STORY_CLOTHES;
@@ -57,6 +60,8 @@ public class FillWordsActivity extends AppCompatActivity {
 
         if(savedInstanceState != null) {
             story = (Story) savedInstanceState.getSerializable("storyTag");
+            List placeholders = (List) savedInstanceState.getSerializable("placeholderTag");
+            story.setPlaceholders(placeholders);
             assert story != null;
         } else {
             story = new Story(rawStory);
@@ -76,7 +81,10 @@ public class FillWordsActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
+        List<String> placeholders = story.getPlaceholders();
+
         savedInstanceState.putSerializable("storyTag", story);
+        savedInstanceState.putSerializable("placeholderTag",(Serializable) placeholders);
     }
 
     public void next(View v) {

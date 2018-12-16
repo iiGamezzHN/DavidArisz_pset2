@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,9 +38,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeActivity(View v) {
-        Intent intent = new Intent(getApplicationContext(), FillWordsActivity.class);
-        intent.putExtra(SELECTED_TAG, selected);
-        startActivity(intent);
+        if(selected == STORY_SELECT) {
+            Toast.makeText(this, "Select a story!", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(getApplicationContext(), FillWordsActivity.class);
+            intent.putExtra(SELECTED_TAG, selected);
+            startActivity(intent);
+        }
     }
 
     public class MySpinnerSelectedListener implements AdapterView.OnItemSelectedListener {

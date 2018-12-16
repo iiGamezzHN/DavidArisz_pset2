@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -22,8 +23,8 @@ public class FillWordsActivity extends AppCompatActivity {
     public static final String STORY_TAG = "story_tag";
     private EditText et;
     private Story story;
-
-
+    private TextView textView;
+    private String left;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +54,29 @@ public class FillWordsActivity extends AppCompatActivity {
                 rawStory = getResources().openRawResource(R.raw.madlib0_simple);
                 break;
         }
-        story = new Story(rawStory);
+
+        if(savedInstanceState != null) {
+            story = (Story) savedInstanceState.getSerializable("storyTag");
+            assert story != null;
+        } else {
+            story = new Story(rawStory);
+        }
 
         // Get EditText object
         et = findViewById(R.id.word_edittext);
+        textView = findViewById(R.id.fill_nr_left);
+
         // Set first hint
         et.setHint(story.getNextPlaceholder());
+
+        left = story.getPlaceholderRemainingCount() + " words are left.";
+        textView.setText(left);
+    }
+
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        savedInstanceState.putSerializable("storyTag", story);
     }
 
     public void next(View v) {
@@ -70,5 +88,8 @@ public class FillWordsActivity extends AppCompatActivity {
         }
         et.setText("");
         et.setHint(story.getNextPlaceholder());
+
+        left = story.getPlaceholderRemainingCount() + " words are left";
+        textView.setText(left);
     }
 }

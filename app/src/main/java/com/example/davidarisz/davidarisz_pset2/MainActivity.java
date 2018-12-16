@@ -17,10 +17,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String STORY_UNIVERSITY = "University story";
     public static final String STORY_CLOTHES = "Clothes story";
     public static final String STORY_DANCE = "Dance story";
-
     public static final String SELECTED_TAG = "selected_tag";
-
-    private String selected = STORY_SIMPLE;
+    public String selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,20 +37,20 @@ public class MainActivity extends AppCompatActivity {
 
     // Change the activity from MainActivity to FillWordsActivity
     public void changeActivity(View v) {
-        if(selected == STORY_SELECT) {
+        if(selected == STORY_SELECT) { // If no story is selected it won't continue
             Toast.makeText(this, "Select a story!", Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(getApplicationContext(), FillWordsActivity.class);
-            intent.putExtra(SELECTED_TAG, selected);
+            intent.putExtra(SELECTED_TAG, selected); // Put the selected story in the intent
             startActivity(intent);
         }
     }
 
+    // A listener for the spinner, which checks what option in the spinner is selected
     public class MySpinnerSelectedListener implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
             selected = parent.getItemAtPosition(pos).toString();
         }
-
         public void onNothingSelected(AdapterView parent) {
             // Do nothing.
         }

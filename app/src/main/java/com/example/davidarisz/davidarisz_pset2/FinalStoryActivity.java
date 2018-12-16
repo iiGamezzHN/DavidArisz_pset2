@@ -23,6 +23,7 @@ public class FinalStoryActivity extends AppCompatActivity {
         tv.setText(Html.fromHtml(story.toString(), Html.FROM_HTML_MODE_COMPACT));
     }
 
+    // Sends you back to the MainActivity
     public void reset (View view) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);

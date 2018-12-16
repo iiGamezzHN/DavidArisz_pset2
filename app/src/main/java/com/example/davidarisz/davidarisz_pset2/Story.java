@@ -26,21 +26,13 @@ public class Story implements Serializable {
     private String text = "";                                // text of the story
     private List<String> placeholders = new ArrayList<>();   // list of placeholders to fill in
     private int filledIn = 0;                                // number of placeholders that have been filled in
-    private boolean htmlMode = true;                        // set to true to surround placeholders with <b></b> tags
+    private boolean htmlMode = true;                         // set to true to surround placeholders with <b></b> tags
 
     /**
      * constructs a new Story reading its text from the given input stream
      */
     public Story(InputStream stream) {
         read(stream);
-    }
-
-    public List<String> getPlaceholders() {
-        return placeholders;
-    }
-
-    public void setPlaceholders(List<String> placeholder) {
-        placeholders = placeholder;
     }
 
     /**
@@ -127,6 +119,23 @@ public class Story implements Serializable {
                 text += word;
             }
         }
+    }
+
+    /**
+     * returns the list of placeholders which is used
+     * when turning the screen
+     */
+    public List<String> getPlaceholders() {
+        return placeholders;
+    }
+
+    /**
+     * sets the placeholders as a list of placeholders
+     * when turning the screen
+     * @param placeholder
+     */
+    public void setPlaceholders(List<String> placeholder) {
+        placeholders = placeholder;
     }
 
     /**
